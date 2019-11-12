@@ -1,4 +1,58 @@
 <resources>
     <string name="app_name">RealFootball</string>
     <string name="error_connect">"Network not available "</string>
+    <string name="string_news">News</string>
+    <string name="string_match">Match</string>
+    <string name="string_team">Team</string>
+    <string name="string_highlight">Highlight</string>
+    <string name="string_vs">VS</string>
+    <string-array name="leagues">
+        <item>English Premier League</item>
+        <item>English League Championship</item>
+        <item>Scottish Premier League</item>
+        <item>German Bundesliga</item>
+        <item>Italian Serie A</item>
+        <item>French Ligue 1</item>
+        <item>Spanish La Liga</item>
+        <item>Greek Superleague Greece</item>
+        <item>Dutch Eredivisie</item>
+        <item>Belgian Jupiler League</item>
+        <item>Turkish Super Lig</item>
+        <item>Danish Superliga</item>
+        <item>Portuguese Primeira Liga</item>
+        <item>American Major League Soccer</item>
+        <item>Swedish Allsvenskan</item>
+        <item>Mexican Primera League</item>
+        <item>Brazilian Brasileirao</item>
+        <item>Ukrainian Premier League</item>
+        <item>Russian Football Premier League</item>
+        <item>Australian A-League</item>
+        <item>Eliteserien</item>
+        <item>Chinese Super League</item>
+        <item>_No League</item>
+        <item>Italian Serie B</item>
+        <item>Scottish Championship</item>
+        <item>English League 1</item>
+        <item>English League 2</item>
+        <item>Italian Lega Pro</item>
+        <item>German 2. Bundesliga</item>
+        <item>Spanish Adelante</item>
+        <item>French Ligue 2</item>
+        <item>Swedish Superettan</item>
+        <item>Brazilian Brasileirao Serie B</item>
+        <item>Argentinian Primera Division</item>
+        <item>Polish Ekstraklasa</item>
+        <item>FIFA World Cup</item>
+        <item>Uruguayan Primera Division</item>
+        <item>American NASL</item>
+        <item>Norwegian 1. Divisjon</item>
+        <item>Welsh Premier League</item>
+        <item>UEFA Champions League</item>
+        <item>UEFA Europa League</item>
+        <item>FA Cup</item>
+        <item>Copa del Rey</item>
+        <item>Coupe de France</item>
+        <item>DFB-Pokal</item>
+        <item>UEFA Nations League</item>
+    </string-array>
 </resources>
