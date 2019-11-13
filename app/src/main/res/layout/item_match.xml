@@ -1,149 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="@dimen/dp_4"
-    android:layout_marginTop="@dimen/dp_2"
-    android:layout_marginEnd="@dimen/dp_4"
-    android:layout_marginBottom="@dimen/dp_2"
-    app:cardCornerRadius="@dimen/dp_24">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <data>
+
+        <variable
+            name="item"
+            type="vn.sunasterisk.realfootball.data.model.Match" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardItemMatch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/item_background"
-        android:foreground="?attr/selectableItemBackground"
-        android:paddingTop="@dimen/dp_16"
-        android:paddingBottom="@dimen/dp_16">
+        android:layout_marginStart="@dimen/dp_4"
+        android:layout_marginEnd="@dimen/dp_4"
+        android:layout_marginBottom="@dimen/dp_12"
+        app:cardCornerRadius="@dimen/dp_12"
+        app:strokeColor="@android:color/darker_gray"
+        app:strokeWidth="@dimen/dp_2">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_24"
-            android:text="@string/string_vs"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textDate" />
+            android:background="@color/item_background"
+            android:foreground="?attr/selectableItemBackground"
+            android:paddingTop="@dimen/dp_4"
+            android:paddingBottom="@dimen/dp_16">
 
-        <TextView
-            android:id="@+id/textScoreHost"
-            style="@style/MaterialAlertDialog.MaterialComponents.Title.Icon.CenterStacked"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/dp_8"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/textView"
-            app:layout_constraintEnd_toStartOf="@+id/textView"
-            app:layout_constraintTop_toTopOf="@+id/textView" />
+            <TextView
+                android:id="@+id/textVs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_24"
+                android:text="@string/string_vs"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textDate" />
 
-        <TextView
-            android:id="@+id/textScoreGuest"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_8"
-            style="@style/TextAppearance.AppCompat.Button"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/textView"
-            app:layout_constraintStart_toEndOf="@+id/textView"
-            app:layout_constraintTop_toTopOf="@+id/textView" />
+            <TextView
+                android:id="@+id/textScoreHost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_8"
+                android:text="@{item.intHomeScore}"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textVs"
+                app:layout_constraintEnd_toStartOf="@+id/textVs"
+                app:layout_constraintTop_toTopOf="@+id/textVs" />
 
-        <TextView
-            android:id="@+id/textHost"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_24"
-            android:layout_marginEnd="@dimen/dp_48"
-            android:ellipsize="end"
-            android:gravity="center"
-            android:maxLines="2"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-            app:layout_constraintBottom_toBottomOf="@+id/textView"
-            app:layout_constraintEnd_toStartOf="@+id/textScoreHost"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView"
-            tools:text="@string/string_match" />
+            <TextView
+                android:id="@+id/textScoreGuest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:text="@{item.intAwayScore}"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textVs"
+                app:layout_constraintStart_toEndOf="@+id/textVs"
+                app:layout_constraintTop_toTopOf="@+id/textVs" />
 
-        <TextView
-            android:id="@+id/textGuest"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_48"
-            android:layout_marginEnd="@dimen/dp_24"
-            android:ellipsize="end"
-            android:gravity="center"
-            android:maxLines="2"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-            app:layout_constraintBottom_toBottomOf="@+id/textView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/textScoreGuest"
-            app:layout_constraintTop_toTopOf="@+id/textView"
-            tools:text="@string/string_match" />
+            <TextView
+                android:id="@+id/textHost"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginEnd="@dimen/dp_48"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="2"
+                android:text="@{item.strHomeTeam}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textVs"
+                app:layout_constraintEnd_toStartOf="@+id/textScoreHost"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/textVs"
+                app:layout_constraintVertical_bias="0.0"
+                tools:text="@string/string_match" />
 
-        <TextView
-            android:id="@+id/textDate"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@android:color/darker_gray"
-            android:textAlignment="center"
-            android:textColor="@color/color_primary"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="@tools:sample/date/ddmmyy" />
+            <TextView
+                android:id="@+id/textGuest"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_48"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="2"
+                android:text="@{item.strAwayTeam}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textVs"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textScoreGuest"
+                app:layout_constraintTop_toTopOf="@+id/textVs"
+                tools:text="@string/string_match" />
 
-        <TextView
-            android:id="@+id/textHour"
-            style="@style/TextAppearance.AppCompat.Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_16"
-            android:textColor="@color/color_primary"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            tools:text="@tools:sample/date/hhmm" />
+            <TextView
+                android:id="@+id/textDate"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_24"
+                android:background="@color/color_light_gray"
+                android:date="@{item.dateEvent}"
+                android:textAlignment="center"
+                android:textColor="@color/color_primary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@tools:sample/date/ddmmyy" />
 
-        <ImageView
-            android:id="@+id/imageNotification"
-            android:layout_width="@dimen/dp_24"
-            android:layout_height="@dimen/dp_24"
-            android:layout_marginEnd="@dimen/dp_16"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_notification"
-            android:visibility="invisible"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/textHour"
+                style="@style/TextAppearance.AppCompat.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:hour="@{item.strTime}"
+                android:textColor="@color/color_primary"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textVs"
+                tools:text="@tools:sample/date/hhmm" />
 
-        <ImageView
-            android:id="@+id/imageHost"
-            android:layout_width="@dimen/dp_36"
-            android:layout_height="@dimen/dp_36"
-            android:layout_marginEnd="@dimen/dp_8"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_error"
-            app:layout_constraintBottom_toBottomOf="@+id/textView"
-            app:layout_constraintEnd_toStartOf="@+id/textScoreHost"
-            app:layout_constraintStart_toEndOf="@+id/textHost"
-            app:layout_constraintTop_toTopOf="@+id/textView" />
+            <ImageView
+                android:id="@+id/imageNotification"
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_24"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_notification"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/imageGuess"
-            android:layout_width="@dimen/dp_36"
-            android:layout_height="@dimen/dp_36"
-            android:layout_marginStart="@dimen/dp_8"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_error"
-            app:layout_constraintBottom_toBottomOf="@+id/textView"
-            app:layout_constraintEnd_toStartOf="@+id/textGuest"
-            app:layout_constraintStart_toEndOf="@+id/textScoreGuest"
-            app:layout_constraintTop_toTopOf="@+id/textView" />
+            <ImageView
+                android:id="@+id/imageHost"
+                android:layout_width="@dimen/dp_36"
+                android:layout_height="@dimen/dp_36"
+                android:layout_marginEnd="@dimen/dp_8"
+                android:contentDescription="@string/app_name"
+                app:layout_constraintBottom_toBottomOf="@+id/textVs"
+                app:layout_constraintEnd_toStartOf="@+id/textScoreHost"
+                app:layout_constraintStart_toEndOf="@+id/textHost"
+                app:layout_constraintTop_toTopOf="@+id/textVs" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</com.google.android.material.card.MaterialCardView>
+            <ImageView
+                android:id="@+id/imageGuess"
+                android:layout_width="@dimen/dp_36"
+                android:layout_height="@dimen/dp_36"
+                android:layout_marginStart="@dimen/dp_8"
+                android:contentDescription="@string/app_name"
+                app:layout_constraintBottom_toBottomOf="@+id/textVs"
+                app:layout_constraintEnd_toStartOf="@+id/textGuest"
+                app:layout_constraintStart_toEndOf="@+id/textScoreGuest"
+                app:layout_constraintTop_toTopOf="@+id/textVs" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

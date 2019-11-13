@@ -3,26 +3,22 @@ package vn.sunasterisk.realfootball.extension
 import java.text.SimpleDateFormat
 import java.util.*
 
-fun String.formatDate(dateEvent: String?): String {
-    dateEvent?.let {
-        val pattern = "EEE, d MMM yyyy"
-        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-        val date = dateFormat.parse(it)
-        dateFormat.applyPattern(pattern)
-        return dateFormat.format(date)
-    }
-    return ""
+fun String.formatDate(): String {
+    if (this.isBlank()) return ""
+    val pattern = "EEE, d MMM yyyy"
+    val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+    val date = dateFormat.parse(this)
+    dateFormat.applyPattern(pattern)
+    return dateFormat.format(date)
 }
 
-fun String.getHour(strTime: String?): String? {
-    strTime?.let {
-        val pattern = "HH:mm"
-        val dateFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
-        val date = dateFormat.parse(it)
-        dateFormat.applyPattern(pattern)
-        return dateFormat.format(date)
-    }
-    return ""
+fun String.getHour(): String? {
+    if (this.isBlank()) return ""
+    val pattern = "HH:mm"
+    val dateFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
+    val date = dateFormat.parse(this)
+    dateFormat.applyPattern(pattern)
+    return dateFormat.format(date)
 }
 
 fun String.formatNumber(): String {
@@ -30,4 +26,3 @@ fun String.formatNumber(): String {
     val regex = """[\d]*\.[\d]*""".toRegex().find(this)?.value
     return regex ?: "-"
 }
-
