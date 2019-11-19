@@ -10,4 +10,9 @@
         android:name="vn.sunasterisk.realfootball.ui.match.MatchFragment"
         android:label="MatchFragment"
         tools:layout="@layout/fragment_match"/>
+    <fragment
+        android:id="@+id/navigation_team"
+        android:name="vn.sunasterisk.realfootball.ui.team.TeamFragment"
+        android:label="TeamFragment"
+        tools:layout="@layout/fragment_teams"/>
 </navigation>
