@@ -1,12 +1,14 @@
 package vn.sunasterisk.realfootball.data.local
 
 import androidx.lifecycle.LiveData
+import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.rifqimfahmi.foorballapps.vo.FavoriteTeam
 import vn.sunasterisk.realfootball.data.model.Team
 
+@Dao
 interface TeamDao {
     @Query("SELECT * FROM teams WHERE idLeague = :leagueId")
     fun getTeams(leagueId: String): LiveData<List<Team>>

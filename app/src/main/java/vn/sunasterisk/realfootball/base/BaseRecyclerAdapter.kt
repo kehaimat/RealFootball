@@ -7,7 +7,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewbinding.ViewBinding
+import vn.sunasterisk.realfootball.BR
 
 abstract class BaseRecyclerAdapter<Item, ViewBinding : ViewDataBinding>(
     callBack: DiffUtil.ItemCallback<Item>
@@ -29,9 +29,9 @@ abstract class BaseRecyclerAdapter<Item, ViewBinding : ViewDataBinding>(
     }
 
     override fun onBindViewHolder(holder: BaseViewHolder<ViewBinding>, position: Int) {
-        val item: Item? = currentList.getOrNull(position)
-        item?.let {
-            bindView(holder.binding, item, position)
+        currentList.get(position)?.let {
+            holder.binding.setVariable(BR.item, it)
+            bindView(holder.binding, it, position)
         }
         holder.binding.executePendingBindings()
     }

@@ -54,9 +54,9 @@ private fun createOkHttpClient(): OkHttpClient {
 }
 
 val remoteModule = module {
+    single { createBaseUrl() }
     single { NetworkInterceptor() }
     single { ResponseInterceptor() }
-    single { createBaseUrl() }
     single { GsonConverterFactory.create() }
     single { LiveDataCallAdapterFactory() }
     single { createOkHttpClient() }

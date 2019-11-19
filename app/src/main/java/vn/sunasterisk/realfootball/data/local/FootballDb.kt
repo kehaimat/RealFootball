@@ -6,6 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.rifqimfahmi.foorballapps.vo.FavoriteMatch
 import com.rifqimfahmi.foorballapps.vo.FavoriteTeam
+import vn.sunasterisk.realfootball.FootballApplication
 import vn.sunasterisk.realfootball.data.model.Match
 import vn.sunasterisk.realfootball.data.model.Player
 import vn.sunasterisk.realfootball.data.model.Team
@@ -24,10 +25,10 @@ abstract class FootBallDb : RoomDatabase() {
         @Volatile
         private var INSTANCE: FootBallDb? = null
 
-        fun getDatabase(context: Context): FootBallDb {
+        fun getDatabase(): FootBallDb {
             return INSTANCE ?: synchronized(this) {
                 Room.databaseBuilder(
-                    context.applicationContext,
+                    FootballApplication.applicationContext!!,
                     FootBallDb::class.java,
                     "football_db"
                 )
