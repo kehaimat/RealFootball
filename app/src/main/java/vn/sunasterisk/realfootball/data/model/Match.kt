@@ -1,11 +1,15 @@
 package vn.sunasterisk.realfootball.data.model
 
+import android.os.Parcel
+import android.os.Parcelable
 import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 import java.text.SimpleDateFormat
 import java.util.*
 
 @Entity(tableName = "matches", primaryKeys = ["idEvent"])
+@Parcelize
 data class Match(
     @SerializedName("idEvent")
     val idEvent: String,
@@ -107,7 +111,7 @@ data class Match(
     val strThumb: String?,
     @SerializedName("strTime")
     val strTime: String?
-) {
+) : Parcelable {
     var matchType: String? = null
 
     fun isNextMatch(): Boolean {

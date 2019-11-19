@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="vn.sunasterisk.realfootball.ui.detailmatch.DetailViewModel" />
+    </data>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -33,8 +39,7 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/textVs"
                 app:layout_constraintEnd_toStartOf="@+id/textVs"
-                app:layout_constraintTop_toTopOf="@+id/textVs"
-                />
+                app:layout_constraintTop_toTopOf="@+id/textVs" />
 
             <TextView
                 android:id="@+id/textScoreAway"
@@ -53,8 +58,8 @@
                 android:layout_height="@dimen/dp_64"
                 android:layout_marginStart="@dimen/dp_24"
                 android:layout_marginEnd="@dimen/dp_24"
+                android:url="@{viewModel.urlHome}"
                 android:contentDescription="@string/app_name"
-                android:src="@drawable/ic_launcher_background"
                 app:layout_constraintEnd_toStartOf="@+id/textScoreHome"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textDate" />
@@ -78,9 +83,9 @@
                 android:layout_height="@dimen/dp_64"
                 android:layout_marginStart="@dimen/dp_24"
                 android:layout_marginEnd="@dimen/dp_24"
+                android:url="@{viewModel.urlAway}"
                 android:contentDescription="@string/app_name"
                 android:gravity="center"
-                android:src="@drawable/ic_launcher_background"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textScoreAway"
                 app:layout_constraintTop_toBottomOf="@+id/textDate" />
@@ -202,20 +207,20 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/tv_shots_home"
+                        android:id="@+id/textShotsHome"
                         style="@style/CustomTextView"
-                        app:layout_constraintEnd_toStartOf="@+id/tv_shots_away"
+                        app:layout_constraintEnd_toStartOf="@+id/textShotsAway"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textShot" />
 
                     <TextView
-                        android:id="@+id/tv_shots_away"
+                        android:id="@+id/textShotsAway"
                         style="@style/CustomTextView"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
-                        app:layout_constraintStart_toEndOf="@+id/tv_shots_home"
-                        app:layout_constraintTop_toTopOf="@+id/tv_shots_home" />
+                        app:layout_constraintStart_toEndOf="@+id/textShotsHome"
+                        app:layout_constraintTop_toTopOf="@+id/textShotsHome" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>

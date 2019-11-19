@@ -21,4 +21,5 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:textAlignment">center</item>
     </style>
+
 </resources>

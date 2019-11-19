@@ -3,6 +3,7 @@ package vn.sunasterisk.realfootball.ui.match
 import android.content.Intent
 import android.os.Bundle
 import android.provider.CalendarContract
+import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -25,7 +26,7 @@ class MatchFragment : ViewModelBaseFragment<MatchViewModel, FragmentMatchBinding
     private val adapter by lazy {
         MatchAdapter(
             onItemClicked = {
-                findNavController().navigate(R.id.action_navigation_match_to_navigtion_detail)
+                findNavController().navigate(MatchFragmentDirections.actionNavigationMatchToNavigtionDetail(it))
             },
             onItemNotifiClicked = {
                 createEventMatch(it)
@@ -46,6 +47,7 @@ class MatchFragment : ViewModelBaseFragment<MatchViewModel, FragmentMatchBinding
         viewModel.nextMatches.observe(viewLifecycleOwner, Observer {
             handlerError(it)
             it.result?.let {
+                Log.d(MatchFragment::class.java.name, it.toString())
                 adapter.submitList(it)
             }
         })

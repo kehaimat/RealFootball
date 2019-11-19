@@ -18,5 +18,13 @@
         android:id="@+id/navigtion_detail"
         android:name="vn.sunasterisk.realfootball.ui.detailmatch.DetailMatchFragment"
         android:label="fragment_detail_match"
-        tools:layout="@layout/fragment_detail_match" />
+        tools:layout="@layout/fragment_detail_match" >
+        <argument
+            android:name="match"
+            app:argType="vn.sunasterisk.realfootball.data.model.Match" />
+        <action
+            android:id="@+id/action_navigtion_detail_to_navigation_match"
+            app:destination="@id/navigation_match"
+            app:popUpTo="@id/navigation_match" />
+    </fragment>
 </navigation>
