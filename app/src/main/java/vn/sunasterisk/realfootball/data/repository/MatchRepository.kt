@@ -5,6 +5,7 @@ import com.rifqimfahmi.foorballapps.data.source.remote.json.SchedulesResponse
 import vn.sunasterisk.realfootball.base.BaseResponse
 import vn.sunasterisk.realfootball.base.ContextProviders
 import vn.sunasterisk.realfootball.base.NetworkBoundResource
+import vn.sunasterisk.realfootball.constant.Constant
 import vn.sunasterisk.realfootball.data.local.MatchDao
 import vn.sunasterisk.realfootball.data.model.Match
 import vn.sunasterisk.realfootball.di.FootballService
@@ -31,7 +32,13 @@ class MatchRepository(
                 }
             }
 
-            override fun createCall() = footballService.getNextMatch(leagueId)
+            override fun createCall(): LiveData<BaseResponse<SchedulesResponse>> {
+                return if (type == Constant.TYPE_NEXT_MATCH) {
+                    footballService.getNextMatch(leagueId)
+                } else {
+                    footballService.getLastMatch(leagueId)
+                }
+            }
 
             override fun shouldFetch(data: List<Match>?) = true
 

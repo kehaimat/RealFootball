@@ -133,6 +133,7 @@
                 android:id="@+id/imageNotification"
                 android:layout_width="@dimen/dp_24"
                 android:layout_height="@dimen/dp_24"
+                app:hideIfNext="@{item.matchType}"
                 android:layout_marginEnd="@dimen/dp_16"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:contentDescription="@string/app_name"

@@ -20,7 +20,7 @@ interface MatchDao {
     fun getFavoriteMatches(): LiveData<List<Match>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun saveMatches(matches: List<Match?>)
+    suspend fun saveMatches(matches: List<Match?>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addToFavoriteMatch(favMatch: FavoriteMatch)
@@ -29,7 +29,7 @@ interface MatchDao {
     fun searchMatch(query: String): LiveData<List<Match>>
 
     @Query("DELETE FROM matches WHERE matchType = :type AND idLeague = :idLeague")
-    fun deleteMatches(idLeague: String?, type: String)
+    suspend fun deleteMatches(idLeague: String?, type: String)
 
     @Query("SELECT * FROM matches WHERE idLeague = :idLeague AND matchType = :type ORDER BY dateEvent DESC LIMIT 30")
     fun getMatches(idLeague: String?, type: String): LiveData<List<Match>>

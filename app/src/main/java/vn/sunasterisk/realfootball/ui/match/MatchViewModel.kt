@@ -33,6 +33,11 @@ class MatchViewModel(
     fun setMatchesFilterBy(position: Int) {
         matchFilterId.value = application.getLeaguesId(position)
     }
+    
+    fun setTypeMatch(type: String) {
+        _typeMatch.value = type
+        matchFilterId.value = matchFilterId.value
+    }
 
     override fun onCleared() {
         super.onCleared()

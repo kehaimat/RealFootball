@@ -9,5 +9,14 @@
         android:id="@+id/navigation_match"
         android:name="vn.sunasterisk.realfootball.ui.match.MatchFragment"
         android:label="@string/app_name"
-        tools:layout="@layout/fragment_match" />
+        tools:layout="@layout/fragment_match" >
+        <action
+            android:id="@+id/action_navigation_match_to_navigtion_detail"
+            app:destination="@id/navigtion_detail" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigtion_detail"
+        android:name="vn.sunasterisk.realfootball.ui.detailmatch.DetailMatchFragment"
+        android:label="fragment_detail_match"
+        tools:layout="@layout/fragment_detail_match" />
 </navigation>
