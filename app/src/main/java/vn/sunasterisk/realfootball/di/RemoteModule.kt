@@ -46,7 +46,6 @@ private fun createOkHttpClient(): OkHttpClient {
         .addInterceptor(interceptor)
         .addInterceptor(NetworkInterceptor())
         .addInterceptor(ResponseInterceptor())
-        .cache(cache)
         .connectTimeout(RemoteProperties.TIME_OUT, TimeUnit.SECONDS)
         .readTimeout(RemoteProperties.TIME_OUT, TimeUnit.SECONDS)
         .writeTimeout(RemoteProperties.TIME_OUT, TimeUnit.SECONDS)

@@ -15,16 +15,5 @@ class MainActivity : BaseActivity() {
     }
 
     override fun initializeComponents() {
-        val navController = findNavController(R.id.navHost)
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_news,
-                R.id.navigation_match,
-                R.id.navigation_team,
-                R.id.navigation_highlight
-            )
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        bottomNavigation.setupWithNavController(navController)
     }
 }

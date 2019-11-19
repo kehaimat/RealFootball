@@ -19,7 +19,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
 
     override fun onBackPressed() {
         getCurrentFragment()?.let {
-            if (it is BaseFragment<*> && it.onBackPressed()) {
+            if (it is BaseFragment<*, *> && it.onBackPressed()) {
                 return
             }
         }
@@ -27,7 +27,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
     }
 
     private fun getCurrentFragment(): Fragment? {
-        val currentNavHost = supportFragmentManager.findFragmentById(R.id.navHost)
+        val currentNavHost = supportFragmentManager.findFragmentById(R.id.navMain)
         val currentFragmentClassName =
             (currentNavHost?.findNavController()?.currentDestination as FragmentNavigator.Destination).className
         return currentNavHost.childFragmentManager.fragments.filterNotNull().find {

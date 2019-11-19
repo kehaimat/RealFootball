@@ -15,8 +15,8 @@ class MatchRepository(
     private val footballService: FootballService,
     private val matchDao: MatchDao
 ) {
-    fun getMatch(leagueId: String, type: String): LiveData<BaseResponse<List<Match>>> {
-        return object : NetworkBoundResource<List<Match>, SchedulesResponse>(coroutines) {
+    fun getMatch(leagueId: String, type: String): LiveData<BaseResponse<List<Match>>> =
+        object : NetworkBoundResource<List<Match>, SchedulesResponse>(coroutines) {
             override suspend fun saveCallResult(item: SchedulesResponse) {
                 val matches = item.events
                 matches?.let { matchesData ->
@@ -44,5 +44,21 @@ class MatchRepository(
 
             override suspend fun loadFromDatabase() = matchDao.getMatches(leagueId, type)
         }.asLiveData()
-    }
+
+
+    fun getEventDetail(matchId: String): LiveData<BaseResponse<Match>> =
+        object : NetworkBoundResource<Match, SchedulesResponse>(coroutines) {
+            override suspend fun saveCallResult(item: SchedulesResponse) {
+                item.events?.let {
+                    matchDao.saveMatches(it)
+                }
+            }
+
+            override fun createCall() = footballService.getMatchDetail(matchId)
+
+            override fun shouldFetch(data: Match?) = data == null
+
+            override suspend fun loadFromDatabase() = matchDao.getMatchDetail(matchId)
+
+        }.asLiveData()
 }

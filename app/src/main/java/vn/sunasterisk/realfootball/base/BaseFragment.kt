@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.AndroidViewModel
 
-abstract class BaseFragment<VB : ViewDataBinding> : Fragment(), BaseView {
+abstract class BaseFragment<VM : AndroidViewModel, VB : ViewDataBinding> : Fragment(), BaseView {
+    protected abstract val viewModel:VM
 
     protected lateinit var viewDataBinding: VB
 
