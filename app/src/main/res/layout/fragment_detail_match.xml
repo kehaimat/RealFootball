@@ -1,7 +1,534 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.detailmatch.DetailMatchFragment"/>
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/dp_16"
+            android:paddingBottom="@dimen/dp_16">
+
+            <TextView
+                android:id="@+id/textVs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:text="@string/string_vs"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textHour" />
+
+            <TextView
+                android:id="@+id/textScoreHome"
+                style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dp_24"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textVs"
+                app:layout_constraintEnd_toStartOf="@+id/textVs"
+                app:layout_constraintTop_toTopOf="@+id/textVs"
+                />
+
+            <TextView
+                android:id="@+id/textScoreAway"
+                style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_24"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/textVs"
+                app:layout_constraintStart_toEndOf="@+id/textVs"
+                app:layout_constraintTop_toTopOf="@+id/textVs" />
+
+            <ImageView
+                android:id="@+id/imageHome"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_64"
+                android:layout_marginStart="@dimen/dp_24"
+                android:layout_marginEnd="@dimen/dp_24"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/ic_launcher_background"
+                app:layout_constraintEnd_toStartOf="@+id/textScoreHome"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textDate" />
+
+            <TextView
+                android:id="@+id/textHome"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="2"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                app:layout_constraintEnd_toEndOf="@+id/imageHome"
+                app:layout_constraintStart_toStartOf="@+id/imageHome"
+                app:layout_constraintTop_toBottomOf="@+id/imageHome" />
+
+            <ImageView
+                android:id="@+id/imageAway"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_64"
+                android:layout_marginStart="@dimen/dp_24"
+                android:layout_marginEnd="@dimen/dp_24"
+                android:contentDescription="@string/app_name"
+                android:gravity="center"
+                android:src="@drawable/ic_launcher_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textScoreAway"
+                app:layout_constraintTop_toBottomOf="@+id/textDate" />
+
+            <TextView
+                android:id="@+id/textAway"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="2"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                app:layout_constraintEnd_toEndOf="@+id/imageAway"
+                app:layout_constraintStart_toStartOf="@+id/imageAway"
+                app:layout_constraintTop_toBottomOf="@+id/imageAway" />
+
+
+            <TextView
+                android:id="@+id/textDate"
+                style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_marginBottom="@dimen/dp_16"
+                android:textColor="@color/color_primary"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textHour"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:layout_marginBottom="@dimen/dp_16"
+                android:textColor="@color/color_primary"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textDate" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardGoal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_64"
+                app:cardCornerRadius="@dimen/dp_12"
+                app:layout_constraintEnd_toEndOf="@+id/imageAway"
+                app:layout_constraintStart_toStartOf="@+id/imageHome"
+                app:layout_constraintTop_toBottomOf="@+id/textVs">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/dp_8">
+
+                    <TextView
+                        android:id="@+id/textGoal"
+                        style="@style/CustomLabel"
+                        android:drawableBottom="@drawable/ic_goal"
+                        android:text="@string/string_goals"
+                        android:textColor="@color/color_primary_dark"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textGoalHome"
+                        style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/dp_8"
+                        app:layout_constraintEnd_toStartOf="@+id/textGoalAway"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textGoal" />
+
+                    <TextView
+                        android:id="@+id/textGoalAway"
+                        style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:paddingEnd="@dimen/dp_8"
+                        android:textAlignment="textEnd"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/textGoalHome"
+                        app:layout_constraintTop_toTopOf="@+id/textGoalHome" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardShot"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                app:cardCornerRadius="@dimen/dp_12"
+                app:layout_constraintEnd_toEndOf="@+id/imageAway"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/imageHome"
+                app:layout_constraintTop_toBottomOf="@+id/cardGoal">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/dp_8">
+
+                    <TextView
+                        android:id="@+id/textShot"
+                        style="@style/CustomLabel"
+                        android:drawableBottom="@drawable/ic_shot"
+                        android:text="@string/string_shots"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_shots_home"
+                        style="@style/CustomTextView"
+                        app:layout_constraintEnd_toStartOf="@+id/tv_shots_away"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textShot" />
+
+                    <TextView
+                        android:id="@+id/tv_shots_away"
+                        style="@style/CustomTextView"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/tv_shots_home"
+                        app:layout_constraintTop_toTopOf="@+id/tv_shots_home" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardYellowCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                app:cardCornerRadius="@dimen/dp_12"
+                app:layout_constraintEnd_toEndOf="@+id/imageAway"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/imageHome"
+                app:layout_constraintTop_toBottomOf="@+id/cardShot">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/dp_8">
+
+                    <TextView
+                        android:id="@+id/textYellowCard"
+                        style="@style/CustomLabel"
+                        android:drawableBottom="@drawable/ic_yellow_card"
+                        android:text="@string/string_yellow_card"
+                        android:textColor="@color/color_yellow"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textYellowHome"
+                        style="@style/CustomTextView"
+                        app:layout_constraintEnd_toStartOf="@+id/textYellowAway"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textYellowCard" />
+
+                    <TextView
+                        android:id="@+id/textYellowAway"
+                        style="@style/CustomTextView"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/textYellowHome"
+                        app:layout_constraintTop_toTopOf="@+id/textYellowHome" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardRedCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                app:cardCornerRadius="@dimen/dp_12"
+                app:layout_constraintEnd_toEndOf="@+id/imageAway"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/imageHome"
+                app:layout_constraintTop_toBottomOf="@+id/cardYellowCard">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/dp_8">
+
+                    <TextView
+                        android:id="@+id/textRedCard"
+                        style="@style/CustomLabel"
+                        android:drawableBottom="@drawable/ic_red_card"
+                        android:text="@string/string_red_card"
+                        android:textColor="@android:color/holo_red_dark"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textRedHome"
+                        style="@style/CustomTextView"
+                        app:layout_constraintEnd_toStartOf="@+id/textRedAway"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textRedCard" />
+
+                    <TextView
+                        android:id="@+id/textRedAway"
+                        style="@style/CustomTextView"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/textRedHome"
+                        app:layout_constraintTop_toTopOf="@+id/textRedHome" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardGoalKeeper"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                app:cardCornerRadius="@dimen/dp_12"
+                app:layout_constraintEnd_toEndOf="@+id/imageAway"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/imageHome"
+                app:layout_constraintTop_toBottomOf="@id/cardRedCard">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/dp_8">
+
+                    <TextView
+                        android:id="@+id/textGK"
+                        style="@style/CustomLabel"
+                        android:drawableBottom="@drawable/ic_gloves"
+                        android:text="@string/string_goal_keeper"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textGKHome"
+                        style="@style/CustomTextView"
+                        app:layout_constraintEnd_toStartOf="@+id/textGKAway"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textGK" />
+
+                    <TextView
+                        android:id="@+id/textGKAway"
+                        style="@style/CustomTextView"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/textGKHome"
+                        app:layout_constraintTop_toTopOf="@+id/textGKHome" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardDefense"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                app:cardCornerRadius="@dimen/dp_12"
+                app:layout_constraintEnd_toEndOf="@+id/imageAway"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/imageHome"
+                app:layout_constraintTop_toBottomOf="@id/cardGoalKeeper">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/dp_8">
+
+                    <TextView
+                        android:id="@+id/textDefense"
+                        style="@style/CustomLabel"
+                        android:drawableBottom="@drawable/ic_defense"
+                        android:text="@string/string_defense"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textDefenseHome"
+                        style="@style/CustomTextView"
+                        app:layout_constraintEnd_toStartOf="@+id/textDefenseAway"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textDefense" />
+
+                    <TextView
+                        android:id="@+id/textDefenseAway"
+                        style="@style/CustomTextView"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/textDefenseHome"
+                        app:layout_constraintTop_toTopOf="@+id/textDefenseHome" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardMidfiled"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                app:cardCornerRadius="@dimen/dp_12"
+                app:layout_constraintEnd_toEndOf="@+id/imageAway"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/imageHome"
+                app:layout_constraintTop_toBottomOf="@id/cardDefense">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/dp_8">
+
+                    <TextView
+                        android:id="@+id/textMidfield"
+                        style="@style/CustomLabel"
+                        android:drawableBottom="@drawable/ic_midfiled"
+                        android:text="@string/string_midfield"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textMidfieldHome"
+                        style="@style/CustomTextView"
+                        app:layout_constraintEnd_toStartOf="@+id/textMidfieldAway"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textMidfield" />
+
+                    <TextView
+                        android:id="@+id/textMidfieldAway"
+                        style="@style/CustomTextView"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/textMidfieldHome"
+                        app:layout_constraintTop_toTopOf="@+id/textMidfieldHome" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardForward"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                app:cardCornerRadius="@dimen/dp_12"
+                app:layout_constraintEnd_toEndOf="@+id/imageAway"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/imageHome"
+                app:layout_constraintTop_toBottomOf="@id/cardMidfiled">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/dp_8">
+
+                    <TextView
+                        android:id="@+id/textForward"
+                        style="@style/CustomLabel"
+                        android:drawableBottom="@drawable/ic_forward"
+                        android:text="@string/string_forward"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textForwardHome"
+                        style="@style/CustomTextView"
+                        app:layout_constraintEnd_toStartOf="@+id/textForwardAway"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textForward" />
+
+                    <TextView
+                        android:id="@+id/textForwardAway"
+                        style="@style/CustomTextView"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/textForwardHome"
+                        app:layout_constraintTop_toTopOf="@+id/textForwardHome" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardSubtitutes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                app:cardCornerRadius="@dimen/dp_12"
+                app:layout_constraintEnd_toEndOf="@+id/imageAway"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/imageHome"
+                app:layout_constraintTop_toBottomOf="@id/cardMidfiled">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/dp_8">
+
+                    <TextView
+                        android:id="@+id/textSubtitutes"
+                        style="@style/CustomLabel"
+                        android:drawableBottom="@drawable/ic_sub"
+                        android:text="@string/string_subtitutes"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textSubtitutesHome"
+                        style="@style/CustomTextView"
+                        app:layout_constraintEnd_toStartOf="@+id/textSubtitutesAway"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textSubtitutes" />
+
+                    <TextView
+                        android:id="@+id/textSubtitutesAway"
+                        style="@style/CustomTextView"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/textSubtitutesHome"
+                        app:layout_constraintTop_toTopOf="@+id/textSubtitutesHome" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

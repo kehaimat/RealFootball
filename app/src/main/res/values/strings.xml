@@ -9,6 +9,15 @@
     <string name="string_next">Next</string>
     <string name="string_previous">Previous</string>
     <string name="string_search">Search</string>
+    <string name="string_goals">Goals</string>
+    <string name="string_shots">Shots</string>
+    <string name="string_yellow_card">Yellow Card</string>
+    <string name="string_red_card">Red Card</string>
+    <string name="string_goal_keeper">Goal Keeper</string>
+    <string name="string_defense">Defense</string>
+    <string name="string_midfield">Midfield</string>
+    <string name="string_forward">Forward</string>
+    <string name="string_subtitutes">Subtitutes</string>
     <string-array name="leagues">
         <item>English Premier League</item>
         <item>English League Championship</item>
