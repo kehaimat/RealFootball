@@ -7,7 +7,8 @@ import vn.sunasterisk.realfootball.data.model.Match
 import vn.sunasterisk.realfootball.databinding.ItemMatchBinding
 
 class MatchAdapter(
-    val onItemClicked: (match: Match) -> Unit
+    val onItemClicked: (Match) -> Unit,
+    val onItemNotifiClicked: (Match) -> Unit
 ) :
     BaseRecyclerAdapter<Match, ItemMatchBinding>(DiffUtilCallback()) {
     override fun getLayoutRes(viewType: Int) = R.layout.item_match
@@ -17,6 +18,11 @@ class MatchAdapter(
             cardItemMatch.setOnClickListener {
                 item?.let {
                     onItemClicked(it)
+                }
+            }
+            imageNotification.setOnClickListener {
+                item?.let {
+                    onItemNotifiClicked(it)
                 }
             }
         }
