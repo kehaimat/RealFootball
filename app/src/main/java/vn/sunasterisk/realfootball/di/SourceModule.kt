@@ -23,5 +23,5 @@ val sourceModule = module {
 val viewModelModule = module {
     single(named(FootballApplication::class.java.name)) { androidApplication() }
     viewModel { MatchViewModel(get(named(FootballApplication::class.java.name)), get()) }
-    viewModel { DetailViewModel(get(named(FootballApplication::class.java.name)),get()) }
+    viewModel { DetailViewModel(get(named(FootballApplication::class.java.name)),get(),get()) }
 }

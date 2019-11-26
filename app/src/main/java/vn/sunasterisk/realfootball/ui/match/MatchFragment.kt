@@ -3,16 +3,16 @@ package vn.sunasterisk.realfootball.ui.match
 import android.content.Intent
 import android.os.Bundle
 import android.provider.CalendarContract
-import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_match.*
 import org.koin.android.viewmodel.ext.android.viewModel
+import vn.sunasterisk.realfootball.BottomNavigationFragmentDirections
 import vn.sunasterisk.realfootball.R
 import vn.sunasterisk.realfootball.base.ViewModelBaseFragment
 import vn.sunasterisk.realfootball.constant.Constant
@@ -23,10 +23,14 @@ class MatchFragment : ViewModelBaseFragment<MatchViewModel, FragmentMatchBinding
     AdapterView.OnItemSelectedListener {
     override val viewModel: MatchViewModel by viewModel()
     override val contentViewId get() = R.layout.fragment_match
+    private val mainNavController by lazy {
+        Navigation.findNavController(requireActivity(), R.id.navMain)
+    }
+
     private val adapter by lazy {
         MatchAdapter(
             onItemClicked = {
-                findNavController().navigate(MatchFragmentDirections.actionNavigationMatchToNavigtionDetail(it))
+                openDetailMatch(it)
             },
             onItemNotifiClicked = {
                 createEventMatch(it)
@@ -47,7 +51,6 @@ class MatchFragment : ViewModelBaseFragment<MatchViewModel, FragmentMatchBinding
         viewModel.nextMatches.observe(viewLifecycleOwner, Observer {
             handlerError(it)
             it.result?.let {
-                Log.d(MatchFragment::class.java.name, it.toString())
                 adapter.submitList(it)
             }
         })
@@ -85,5 +88,13 @@ class MatchFragment : ViewModelBaseFragment<MatchViewModel, FragmentMatchBinding
             putExtra(CalendarContract.Events.TITLE, "${match.strHomeTeam} vs ${match.strAwayTeam}")
             putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, match.getStartTime())
         })
+    }
+
+    fun openDetailMatch(match: Match) {
+        mainNavController.navigate(
+            BottomNavigationFragmentDirections.actionNavigationMainToNavigationDetail(
+                match.idHomeTeam, match.idAwayTeam, match.idEvent
+            )
+        )
     }
 }

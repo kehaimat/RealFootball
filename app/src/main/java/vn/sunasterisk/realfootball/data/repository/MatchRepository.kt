@@ -45,4 +45,21 @@ class MatchRepository(
             override suspend fun loadFromDatabase() = matchDao.getMatches(leagueId, type)
         }.asLiveData()
     }
+
+    fun getEventDetail(matchId: String): LiveData<BaseResponse<Match>> {
+        return object : NetworkBoundResource<Match, SchedulesResponse>(coroutines) {
+            override suspend fun saveCallResult(item: SchedulesResponse) {
+                item.events?.let {
+                    matchDao.saveMatches(it)
+                }
+            }
+
+            override fun createCall() = footballService.getMatchDetail(matchId)
+
+            override fun shouldFetch(data: Match?) = data == null
+
+            override suspend fun loadFromDatabase() = matchDao.getMatchDetail(matchId)
+
+        }.asLiveData()
+    }
 }

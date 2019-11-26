@@ -3,28 +3,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:startDestination="@id/navigation_match">
+    app:startDestination="@id/navigation_main">
 
     <fragment
-        android:id="@+id/navigation_match"
-        android:name="vn.sunasterisk.realfootball.ui.match.MatchFragment"
+        android:id="@+id/navigation_main"
+        android:name="vn.sunasterisk.realfootball.BottomNavigationFragment"
         android:label="@string/app_name"
-        tools:layout="@layout/fragment_match" >
+        tools:layout="@layout/fragment_bottom_navigation" >
         <action
-            android:id="@+id/action_navigation_match_to_navigtion_detail"
-            app:destination="@id/navigtion_detail" />
+            android:id="@+id/action_navigation_main_to_navigation_detail"
+            app:destination="@id/navigation_detail" />
     </fragment>
     <fragment
-        android:id="@+id/navigtion_detail"
+        android:id="@+id/navigation_detail"
         android:name="vn.sunasterisk.realfootball.ui.detailmatch.DetailMatchFragment"
         android:label="fragment_detail_match"
         tools:layout="@layout/fragment_detail_match" >
         <argument
-            android:name="match"
-            app:argType="vn.sunasterisk.realfootball.data.model.Match" />
-        <action
-            android:id="@+id/action_navigtion_detail_to_navigation_match"
-            app:destination="@id/navigation_match"
-            app:popUpTo="@id/navigation_match" />
+            android:name="idHome"
+            app:argType="string" />
+        <argument
+            android:name="idAway"
+            app:argType="string" />
+        <argument
+            android:name="idEvent"
+            app:argType="string" />
     </fragment>
 </navigation>

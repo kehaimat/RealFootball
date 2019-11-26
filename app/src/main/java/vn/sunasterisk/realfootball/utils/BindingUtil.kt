@@ -12,6 +12,7 @@ import com.bumptech.glide.request.RequestOptions
 import vn.sunasterisk.realfootball.FootballApplication
 import vn.sunasterisk.realfootball.R
 import vn.sunasterisk.realfootball.constant.Constant
+import vn.sunasterisk.realfootball.extension.format
 import vn.sunasterisk.realfootball.extension.formatDate
 import vn.sunasterisk.realfootball.extension.getHour
 
@@ -45,6 +46,14 @@ object BindingUtil {
             Glide.with(imageView.context)
                 .load(it)
                 .into(imageView)
+        }
+    }
+
+    @BindingAdapter("android:format")
+    @JvmStatic
+    fun formatText(textView: TextView, string: String?){
+        string?.let {
+            textView.text= string.format()
         }
     }
 }
