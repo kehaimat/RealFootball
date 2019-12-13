@@ -29,4 +29,18 @@ class TeamRepository(
             override suspend fun loadFromDatabase(): LiveData<Team> = teamDao.getTeam(teamId)
         }.asLiveData()
 
+    fun getTeams(leagueId: String): LiveData<BaseResponse<List<Team>>> =
+        object : NetworkBoundResource<List<Team>, TeamsResponse>(coroutines) {
+            override suspend fun saveCallResult(item: TeamsResponse) {
+                teamDao.saveTeams(item.teams)
+            }
+
+            override fun createCall(): LiveData<BaseResponse<TeamsResponse>> =
+                footballService.getTeams(leagueId)
+
+            override fun shouldFetch(data: List<Team>?): Boolean = true
+
+            override suspend fun loadFromDatabase(): LiveData<List<Team>> =
+                teamDao.getTeams(leagueId)
+        }.asLiveData()
 }
