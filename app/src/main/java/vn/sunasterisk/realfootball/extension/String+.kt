@@ -26,3 +26,9 @@ fun String.formatNumber(): String {
     val regex = """[\d]*\.[\d]*""".toRegex().find(this)?.value
     return regex ?: "-"
 }
+
+fun String.formatSemicolon(): String {
+    if (this.isBlank()) return "-"
+    return this.replace(";\\s?".toRegex(), "\n")
+}
+

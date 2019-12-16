@@ -9,23 +9,28 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_match.*
 import org.koin.android.viewmodel.ext.android.viewModel
+import vn.sunasterisk.realfootball.BottomNavigationFragmentDirections
 import vn.sunasterisk.realfootball.R
-import vn.sunasterisk.realfootball.base.ViewModelBaseFragment
+import vn.sunasterisk.realfootball.base.BaseFragment
 import vn.sunasterisk.realfootball.constant.Constant
 import vn.sunasterisk.realfootball.data.model.Match
 import vn.sunasterisk.realfootball.databinding.FragmentMatchBinding
 
-class MatchFragment : ViewModelBaseFragment<MatchViewModel, FragmentMatchBinding>(),
+class MatchFragment : BaseFragment<MatchViewModel, FragmentMatchBinding>(),
     AdapterView.OnItemSelectedListener {
     override val viewModel: MatchViewModel by viewModel()
     override val contentViewId get() = R.layout.fragment_match
+    private val mainNavController by lazy {
+        Navigation.findNavController(requireActivity(), R.id.navMain)
+    }
+
     private val adapter by lazy {
         MatchAdapter(
             onItemClicked = {
-                findNavController().navigate(R.id.action_navigation_match_to_navigtion_detail)
+                openDetailMatch(it)
             },
             onItemNotifiClicked = {
                 createEventMatch(it)
@@ -83,5 +88,13 @@ class MatchFragment : ViewModelBaseFragment<MatchViewModel, FragmentMatchBinding
             putExtra(CalendarContract.Events.TITLE, "${match.strHomeTeam} vs ${match.strAwayTeam}")
             putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, match.getStartTime())
         })
+    }
+
+    fun openDetailMatch(match: Match) {
+        mainNavController.navigate(
+            BottomNavigationFragmentDirections.actionNavigationMainToNavigationDetail(
+                match.idHomeTeam, match.idAwayTeam, match.idEvent
+            )
+        )
     }
 }
