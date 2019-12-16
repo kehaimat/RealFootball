@@ -16,7 +16,7 @@ data class Team(
     @SerializedName("intLoved")
     val intLoved: String?,
     @SerializedName("intStadiumCapacity")
-    val intStadiumCapacity: String,
+    val intStadiumCapacity: String?,
     @SerializedName("strAlternate")
     val strAlternate: String?,
     @SerializedName("strCountry")
@@ -54,17 +54,17 @@ data class Team(
     @SerializedName("strTeam")
     val strTeam: String?,
     @SerializedName("strTeamBadge")
-    val strTeamBadge: String,
+    val strTeamBadge: String?,
     @SerializedName("strTeamBanner")
-    val strTeamBanner: String,
+    val strTeamBanner: String?,
     @SerializedName("strTeamFanart1")
-    val strTeamFanart1: String,
+    val strTeamFanart1: String?,
     @SerializedName("strTeamFanart2")
-    val strTeamFanart2: String,
+    val strTeamFanart2: String?,
     @SerializedName("strTeamFanart3")
-    val strTeamFanart3: String,
+    val strTeamFanart3: String?,
     @SerializedName("strTeamFanart4")
-    val strTeamFanart4: String,
+    val strTeamFanart4: String?,
     @SerializedName("strTeamJersey")
     val strTeamJersey: String?,
     @SerializedName("strTeamLogo")
