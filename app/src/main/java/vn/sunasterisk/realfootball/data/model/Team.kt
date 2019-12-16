@@ -1,8 +1,11 @@
 package vn.sunasterisk.realfootball.data.model
 
+import android.os.Parcelable
 import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 @Entity(tableName = "teams", primaryKeys = ["idLeague", "idTeam"])
 data class Team(
     @SerializedName("idLeague")
@@ -77,6 +80,6 @@ data class Team(
     val strWebsite: String?,
     @SerializedName("strYoutube")
     val strYoutube: String?
-) {
+) : Parcelable {
     fun getFormedYear() = "Est. $intFormedYear"
 }

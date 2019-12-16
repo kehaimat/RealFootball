@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_navigation_main_to_navigation_detail"
             app:destination="@id/navigation_detail" />
+        <action
+            android:id="@+id/action_navigation_main_to_navigation_team_detail"
+            app:destination="@id/navigation_team_detail" />
     </fragment>
     <fragment
         android:id="@+id/navigation_detail"
@@ -28,5 +31,14 @@
         <argument
             android:name="idEvent"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_team_detail"
+        android:name="vn.sunasterisk.realfootball.ui.teamdetail.TeamDetailFragment"
+        android:label="TeamDetailFragment"
+        tools:layout="@layout/fragment_detail_team">
+        <argument
+            android:name="team"
+            app:argType="vn.sunasterisk.realfootball.data.model.Team" />
     </fragment>
 </navigation>
