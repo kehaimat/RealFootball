@@ -27,6 +27,11 @@
     <string name="string_instagram">Instagram</string>
     <string name="string_youtobe">Youtube</string>
     <string name="string_twitter">Twitter</string>
+    <string name="string_overview">Overview</string>
+    <string name="string_stadium">Stadium</string>
+    <string name="string_year_format">Est: %s</string>
+    <string name="string_location_format">Location: %s</string>
+    <string name="string_capacity_format">Capacity: %s</string>
     <string-array name="leagues">
         <item>English Premier League</item>
         <item>English League Championship</item>

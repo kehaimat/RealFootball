@@ -12,6 +12,7 @@ import vn.sunasterisk.realfootball.data.repository.TeamRepository
 import vn.sunasterisk.realfootball.ui.detailmatch.DetailViewModel
 import vn.sunasterisk.realfootball.ui.match.MatchViewModel
 import vn.sunasterisk.realfootball.ui.team.TeamViewModel
+import vn.sunasterisk.realfootball.ui.teamdetail.DetailTeamViewModel
 
 val sourceModule = module {
     single { ContextProviders() }
@@ -26,4 +27,5 @@ val viewModelModule = module {
     viewModel { MatchViewModel(get(named(FootballApplication::class.java.name)), get()) }
     viewModel { DetailViewModel(get(named(FootballApplication::class.java.name)), get(), get()) }
     viewModel { TeamViewModel(get(named(FootballApplication::class.java.name)), get()) }
+    viewModel { DetailTeamViewModel(get(named(FootballApplication::class.java.name))) }
 }

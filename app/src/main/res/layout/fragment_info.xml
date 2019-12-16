@@ -2,289 +2,308 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <data>
+
+        <variable
+            name="viewModel"
+            type="vn.sunasterisk.realfootball.ui.teamdetail.DetailTeamViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textLinkTwitter"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_8"
-            android:autoLink="web"
-            android:textColor="@android:color/holo_blue_dark"
-            app:layout_constraintBottom_toBottomOf="@+id/imageTwitter"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textTwitter"
-            app:layout_constraintTop_toTopOf="@+id/imageTwitter" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/textLinkYoutube"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_8"
-            android:autoLink="all"
-            android:textColor="@android:color/holo_blue_dark"
-            app:layout_constraintBottom_toBottomOf="@+id/imageYoutube"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textYoutube"
-            app:layout_constraintTop_toTopOf="@+id/imageYoutube" />
+            <TextView
+                android:id="@+id/textLinkTwitter"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:autoLink="web"
+                android:text="@{viewModel.itemTeam.strTwitter}"
+                android:textColor="@android:color/holo_blue_dark"
+                app:layout_constraintBottom_toBottomOf="@+id/imageTwitter"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textTwitter"
+                app:layout_constraintTop_toTopOf="@+id/imageTwitter" />
 
-        <TextView
-            android:id="@+id/textInfo"
-            style="@style/TextAppearance.AppCompat.Headline"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@android:color/darker_gray"
-            android:paddingStart="@dimen/dp_16"
-            android:text="@string/string_info"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/textLinkYoutube"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:autoLink="all"
+                android:text="@{viewModel.itemTeam.strYoutube}"
+                android:textColor="@android:color/holo_blue_dark"
+                app:layout_constraintBottom_toBottomOf="@+id/imageYoutube"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textYoutube"
+                app:layout_constraintTop_toTopOf="@+id/imageYoutube" />
 
-        <TextView
-            android:id="@+id/textFoundIn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_16"
-            android:layout_marginTop="@dimen/dp_8"
-            android:text="@string/string_found"
-            app:layout_constraintEnd_toStartOf="@+id/textFoudInTeam"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInfo" />
+            <TextView
+                android:id="@+id/textInfo"
+                style="@style/TextAppearance.AppCompat.Headline"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@android:color/darker_gray"
+                android:paddingStart="@dimen/dp_16"
+                android:text="@string/string_info"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textFoudInTeam"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_16"
-            android:textColor="@android:color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textFoundIn"
-            app:layout_constraintTop_toTopOf="@+id/textFoundIn" />
+            <TextView
+                android:id="@+id/textFoundIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="@string/string_found"
+                app:layout_constraintEnd_toStartOf="@+id/textFoudInTeam"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInfo" />
 
-        <TextView
-            android:id="@+id/textLocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_16"
-            android:layout_marginTop="@dimen/dp_16"
-            android:text="@string/string_location"
-            app:layout_constraintEnd_toStartOf="@+id/textLocationTeam"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textFoundIn" />
+            <TextView
+                android:id="@+id/textFoudInTeam"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:text="@{viewModel.itemTeam.intFormedYear}"
+                android:textColor="@android:color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textFoundIn"
+                app:layout_constraintTop_toTopOf="@+id/textFoundIn" />
 
-        <TextView
-            android:id="@+id/textLocationTeam"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_16"
-            android:textColor="@android:color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textLocation"
-            app:layout_constraintTop_toTopOf="@+id/textLocation" />
+            <TextView
+                android:id="@+id/textLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_16"
+                android:text="@string/string_location"
+                app:layout_constraintEnd_toStartOf="@+id/textLocationTeam"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textFoundIn" />
 
-        <TextView
-            android:id="@+id/textContact"
-            style="@style/TextAppearance.AppCompat.Headline"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_16"
-            android:background="@android:color/darker_gray"
-            android:paddingStart="@dimen/dp_16"
-            android:text="@string/string_contact"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textLocationTeam" />
+            <TextView
+                android:id="@+id/textLocationTeam"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:text="@{viewModel.itemTeam.strCountry}"
+                android:textColor="@android:color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textLocation"
+                app:layout_constraintTop_toTopOf="@+id/textLocation" />
 
-        <ImageView
-            android:id="@+id/imageWebsite"
-            android:layout_width="@dimen/dp_36"
-            android:layout_height="@dimen/dp_36"
-            android:layout_marginStart="@dimen/dp_16"
-            android:layout_marginTop="@dimen/dp_16"
-            android:contentDescription="@string/app_name"
-            app:layout_constraintEnd_toStartOf="@+id/textWebsite"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textContact"
-            app:srcCompat="@drawable/ic_web" />
+            <TextView
+                android:id="@+id/textContact"
+                style="@style/TextAppearance.AppCompat.Headline"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:background="@android:color/darker_gray"
+                android:paddingStart="@dimen/dp_16"
+                android:text="@string/string_contact"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textLocationTeam" />
 
-        <TextView
-            android:id="@+id/textWebsite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_8"
-            android:text="@string/string_website"
-            app:layout_constraintBottom_toBottomOf="@+id/imageWebsite"
-            app:layout_constraintEnd_toStartOf="@+id/textLinkWeb"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/imageWebsite"
-            app:layout_constraintTop_toTopOf="@+id/imageWebsite" />
+            <ImageView
+                android:id="@+id/imageWebsite"
+                android:layout_width="@dimen/dp_36"
+                android:layout_height="@dimen/dp_36"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_16"
+                android:contentDescription="@string/app_name"
+                app:layout_constraintEnd_toStartOf="@+id/textWebsite"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textContact"
+                app:srcCompat="@drawable/ic_web" />
 
-        <TextView
-            android:id="@+id/textLinkWeb"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_8"
-            android:autoLink="web"
-            android:textColor="@android:color/holo_blue_dark"
-            app:layout_constraintBottom_toBottomOf="@+id/imageWebsite"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textWebsite"
-            app:layout_constraintTop_toTopOf="@+id/imageWebsite" />
+            <TextView
+                android:id="@+id/textWebsite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:text="@string/string_website"
+                app:layout_constraintBottom_toBottomOf="@+id/imageWebsite"
+                app:layout_constraintEnd_toStartOf="@+id/textLinkWeb"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imageWebsite"
+                app:layout_constraintTop_toTopOf="@+id/imageWebsite" />
 
-        <ImageView
-            android:id="@+id/imageFacebook"
-            android:layout_width="@dimen/dp_36"
-            android:layout_height="@dimen/dp_36"
-            android:layout_marginStart="@dimen/dp_16"
-            android:layout_marginTop="@dimen/dp_16"
-            android:contentDescription="@string/app_name"
-            app:layout_constraintEnd_toStartOf="@+id/textWebsite"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageWebsite"
-            app:srcCompat="@drawable/ic_face" />
+            <TextView
+                android:id="@+id/textLinkWeb"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:autoLink="web"
+                android:text="@{viewModel.itemTeam.strWebsite}"
+                android:textColor="@android:color/holo_blue_dark"
+                app:layout_constraintBottom_toBottomOf="@+id/imageWebsite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textWebsite"
+                app:layout_constraintTop_toTopOf="@+id/imageWebsite" />
 
-        <TextView
-            android:id="@+id/textFacebook"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_8"
-            android:text="@string/string_facebok"
-            app:layout_constraintBottom_toBottomOf="@+id/imageFacebook"
-            app:layout_constraintEnd_toStartOf="@+id/textLinkWeb"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/imageFacebook"
-            app:layout_constraintTop_toTopOf="@+id/imageFacebook" />
+            <ImageView
+                android:id="@+id/imageFacebook"
+                android:layout_width="@dimen/dp_36"
+                android:layout_height="@dimen/dp_36"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_16"
+                android:contentDescription="@string/app_name"
+                app:layout_constraintEnd_toStartOf="@+id/textWebsite"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageWebsite"
+                app:srcCompat="@drawable/ic_face" />
 
-        <TextView
-            android:id="@+id/textLinkFace"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_8"
-            android:autoLink="web"
-            android:textColor="@android:color/holo_blue_dark"
-            app:layout_constraintBottom_toBottomOf="@+id/imageFacebook"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textFacebook"
-            app:layout_constraintTop_toTopOf="@+id/imageFacebook" />
+            <TextView
+                android:id="@+id/textFacebook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:text="@string/string_facebok"
+                app:layout_constraintBottom_toBottomOf="@+id/imageFacebook"
+                app:layout_constraintEnd_toStartOf="@+id/textLinkWeb"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imageFacebook"
+                app:layout_constraintTop_toTopOf="@+id/imageFacebook" />
 
-        <ImageView
-            android:id="@+id/imageInstagram"
-            android:layout_width="@dimen/dp_36"
-            android:layout_height="@dimen/dp_36"
-            android:layout_marginStart="@dimen/dp_16"
-            android:layout_marginTop="@dimen/dp_16"
-            android:contentDescription="@string/app_name"
-            app:layout_constraintEnd_toStartOf="@+id/textInstagram"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageFacebook"
-            app:srcCompat="@drawable/ic_instagram" />
+            <TextView
+                android:id="@+id/textLinkFace"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:autoLink="web"
+                android:text="@{viewModel.itemTeam.strFacebook}"
+                android:textColor="@android:color/holo_blue_dark"
+                app:layout_constraintBottom_toBottomOf="@+id/imageFacebook"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textFacebook"
+                app:layout_constraintTop_toTopOf="@+id/imageFacebook" />
 
-        <TextView
-            android:id="@+id/textInstagram"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_8"
-            android:text="@string/string_instagram"
-            app:layout_constraintBottom_toBottomOf="@+id/imageInstagram"
-            app:layout_constraintEnd_toStartOf="@+id/textLinkInstargram"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/imageInstagram"
-            app:layout_constraintTop_toTopOf="@+id/imageInstagram" />
+            <ImageView
+                android:id="@+id/imageInstagram"
+                android:layout_width="@dimen/dp_36"
+                android:layout_height="@dimen/dp_36"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_16"
+                android:contentDescription="@string/app_name"
+                app:layout_constraintEnd_toStartOf="@+id/textInstagram"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageFacebook"
+                app:srcCompat="@drawable/ic_instagram" />
 
-        <TextView
-            android:id="@+id/textLinkInstargram"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_8"
-            android:autoLink="all"
-            android:textColor="@android:color/holo_blue_dark"
-            app:layout_constraintBottom_toBottomOf="@+id/imageInstagram"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textInstagram"
-            app:layout_constraintTop_toTopOf="@+id/imageInstagram" />
+            <TextView
+                android:id="@+id/textInstagram"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:text="@string/string_instagram"
+                app:layout_constraintBottom_toBottomOf="@+id/imageInstagram"
+                app:layout_constraintEnd_toStartOf="@+id/textLinkInstargram"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imageInstagram"
+                app:layout_constraintTop_toTopOf="@+id/imageInstagram" />
 
-        <ImageView
-            android:id="@+id/imageYoutube"
-            android:layout_width="@dimen/dp_36"
-            android:layout_height="@dimen/dp_36"
-            android:layout_marginStart="@dimen/dp_16"
-            android:layout_marginTop="@dimen/dp_16"
-            android:contentDescription="@string/app_name"
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toStartOf="@+id/textYoutube"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageInstagram"
-            app:srcCompat="@drawable/ic_youtube" />
+            <TextView
+                android:id="@+id/textLinkInstargram"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:autoLink="all"
+                android:text="@{viewModel.itemTeam.strInstagram}"
+                android:textColor="@android:color/holo_blue_dark"
+                app:layout_constraintBottom_toBottomOf="@+id/imageInstagram"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textInstagram"
+                app:layout_constraintTop_toTopOf="@+id/imageInstagram" />
 
-        <TextView
-            android:id="@+id/textYoutube"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_8"
-            android:text="@string/string_youtobe"
-            app:layout_constraintBottom_toBottomOf="@+id/imageYoutube"
-            app:layout_constraintEnd_toStartOf="@+id/textLinkYoutube"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/imageYoutube"
-            app:layout_constraintTop_toTopOf="@+id/imageYoutube" />
+            <ImageView
+                android:id="@+id/imageYoutube"
+                android:layout_width="@dimen/dp_36"
+                android:layout_height="@dimen/dp_36"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_16"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toStartOf="@+id/textYoutube"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageInstagram"
+                app:srcCompat="@drawable/ic_youtube" />
 
-        <ImageView
-            android:id="@+id/imageTwitter"
-            android:layout_width="@dimen/dp_36"
-            android:layout_height="@dimen/dp_36"
-            android:layout_marginStart="@dimen/dp_16"
-            android:layout_marginTop="@dimen/dp_16"
-            android:contentDescription="@string/app_name"
-            app:layout_constraintEnd_toStartOf="@+id/textTwitter"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageYoutube"
-            app:srcCompat="@drawable/ic_twitter" />
+            <TextView
+                android:id="@+id/textYoutube"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:text="@string/string_youtobe"
+                app:layout_constraintBottom_toBottomOf="@+id/imageYoutube"
+                app:layout_constraintEnd_toStartOf="@+id/textLinkYoutube"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imageYoutube"
+                app:layout_constraintTop_toTopOf="@+id/imageYoutube" />
 
-        <TextView
-            android:id="@+id/textTwitter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_8"
-            android:text="@string/string_twitter"
-            app:layout_constraintBottom_toBottomOf="@+id/imageTwitter"
-            app:layout_constraintEnd_toStartOf="@+id/textLinkTwitter"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/imageTwitter"
-            app:layout_constraintTop_toTopOf="@+id/imageTwitter" />
+            <ImageView
+                android:id="@+id/imageTwitter"
+                android:layout_width="@dimen/dp_36"
+                android:layout_height="@dimen/dp_36"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_16"
+                android:contentDescription="@string/app_name"
+                app:layout_constraintEnd_toStartOf="@+id/textTwitter"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageYoutube"
+                app:srcCompat="@drawable/ic_twitter" />
 
-        <ImageView
-            android:id="@+id/imageLogo"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/dp_100"
-            android:layout_marginStart="@dimen/dp_2"
-            android:layout_marginTop="@dimen/dp_36"
-            android:layout_marginEnd="@dimen/dp_2"
-            android:contentDescription="@string/app_name"
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textLinkTwitter" />
+            <TextView
+                android:id="@+id/textTwitter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:text="@string/string_twitter"
+                app:layout_constraintBottom_toBottomOf="@+id/imageTwitter"
+                app:layout_constraintEnd_toStartOf="@+id/textLinkTwitter"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/imageTwitter"
+                app:layout_constraintTop_toTopOf="@+id/imageTwitter" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/imageLogo"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_100"
+                android:layout_marginStart="@dimen/dp_2"
+                android:layout_marginTop="@dimen/dp_16"
+                android:layout_marginEnd="@dimen/dp_2"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerCrop"
+                android:urlBound="@{viewModel.itemTeam.strTeamLogo}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textLinkTwitter" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </layout>
