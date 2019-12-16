@@ -2,6 +2,7 @@ package vn.sunasterisk.realfootball.data.model
 
 import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 import java.text.SimpleDateFormat
 import java.util.*
 
