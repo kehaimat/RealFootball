@@ -16,12 +16,12 @@ interface PlayerDao {
     @Query("SELECT * FROM players WHERE idTeam = :teamId")
     fun getPlayers(teamId: String): LiveData<List<Player>>
 
-    @Query("SELECT * FROM teams INNER JOIN favorite_teams ON favorite_teams.idTeam = teams.idTeam")
-    fun getFavoriteTeams(): LiveData<List<Team>>
-
     @Query("SELECT * FROM players WHERE idPlayer = :playerId")
     fun getPlayer(playerId: String): LiveData<Player>
 
     @Insert(onConflict = REPLACE)
     fun savePlayers(players: List<Player?>)
+
+    @Query("SELECT * FROM players WHERE strPlayer LIKE :query")
+    fun searchPlayer(query: String): LiveData<List<Player>>
 }

@@ -36,4 +36,7 @@ interface FootballService {
 
     @GET("searchteams.php")
     fun searchTeam(@Query("t") query: String): LiveData<BaseResponse<TeamsResponse>>
+
+    @GET("searchplayers.php")
+    fun searchPlayer(@Query("p") query: String): LiveData<BaseResponse<PlayersResponse>>
 }

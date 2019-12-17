@@ -13,7 +13,7 @@ data class Player(
     @SerializedName("dateBorn")
     val dateBorn: String,
     @SerializedName("dateSigned")
-    val dateSigned: String,
+    val dateSigned: String?,
     @SerializedName("idPlayerManager")
     val idPlayerManager: String?,
     @SerializedName("idSoccerXML")
@@ -31,7 +31,7 @@ data class Player(
     @SerializedName("strCutout")
     val strCutout: String?,
     @SerializedName("strDescriptionEN")
-    val strDescriptionEN: String,
+    val strDescriptionEN: String?,
     @SerializedName("strFacebook")
     val strFacebook: String?,
     @SerializedName("strFanart1")
