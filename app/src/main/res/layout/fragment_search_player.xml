@@ -8,15 +8,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:elevation="@dimen/dp_8"
-            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-            app:navigationIcon="?attr/homeAsUpIndicator"
-            app:title="@string/string_search" />
-
         <androidx.appcompat.widget.SearchView
             android:id="@+id/searchPlayer"
             android:layout_width="match_parent"

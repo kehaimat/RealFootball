@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.AndroidViewModel
+import androidx.navigation.fragment.findNavController
+import vn.sunasterisk.realfootball.MainActivity
 
 abstract class BaseFragment<VM : AndroidViewModel, VB : ViewDataBinding> : Fragment(), BaseView {
     protected abstract val viewModel:VM
@@ -45,6 +48,14 @@ abstract class BaseFragment<VM : AndroidViewModel, VB : ViewDataBinding> : Fragm
     fun handlerError(data: BaseResponse<*>) {
         data.error?.let {
             handleBusinessException(it)
+        }
+    }
+    fun initTooBar(toolbar: Toolbar) {
+        (activity as MainActivity).setSupportActionBar(toolbar)
+        (activity as MainActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        (activity as MainActivity).supportActionBar?.setDisplayShowHomeEnabled(true)
+        toolbar.setNavigationOnClickListener {
+            findNavController().popBackStack()
         }
     }
 }

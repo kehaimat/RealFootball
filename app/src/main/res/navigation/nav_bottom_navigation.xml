@@ -15,4 +15,9 @@
         android:name="vn.sunasterisk.realfootball.ui.team.TeamFragment"
         android:label="TeamFragment"
         tools:layout="@layout/fragment_teams"/>
+    <fragment
+        android:id="@+id/navigation_news"
+        android:name="vn.sunasterisk.realfootball.ui.search.SearchPlayerFragment"
+        android:label="SearchPlayerFragment"
+        tools:layout="@layout/fragment_search_player"/>
 </navigation>
