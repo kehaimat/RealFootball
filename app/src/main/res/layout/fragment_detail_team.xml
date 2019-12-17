@@ -2,6 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="vn.sunasterisk.realfootball.ui.teamdetail.DetailTeamViewModel" />
+    </data>
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -36,13 +43,15 @@
                         android:layout_height="@dimen/dp_72"
                         android:layout_marginTop="@dimen/dp_16"
                         android:layout_marginBottom="@dimen/dp_8"
-                        android:contentDescription="@string/app_name" />
+                        android:contentDescription="@string/app_name"
+                        android:url="@{viewModel.itemTeam.strTeamBadge}" />
 
                     <TextView
                         android:id="@+id/textYear"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/dp_4"
+                        android:text="@{@string/string_year_format(viewModel.itemTeam.intFormedYear)}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                         android:textColor="@color/item_background" />
 
@@ -51,6 +60,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/dp_16"
+                        android:text="@{viewModel.itemTeam.strStadium}"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
                         android:textColor="@color/item_background" />
                 </LinearLayout>

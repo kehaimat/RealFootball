@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="vn.sunasterisk.realfootball.ui.teamdetail.DetailTeamViewModel" />
+    </data>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -16,7 +22,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_100"
                 android:contentDescription="@string/app_name"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"
+                android:url="@{viewModel.itemTeam.strTeamBanner}" />
 
             <TextView
                 android:id="@+id/textDescription"
@@ -26,8 +33,8 @@
                 android:paddingTop="@dimen/dp_24"
                 android:paddingEnd="@dimen/dp_16"
                 android:paddingBottom="@dimen/dp_24"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-                tools:text="@tools:sample/lorem" />
+                android:text="@{viewModel.itemTeam.strDescriptionEN}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 </layout>
