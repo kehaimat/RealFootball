@@ -18,6 +18,15 @@
     <string name="string_midfield">Midfield</string>
     <string name="string_forward">Forward</string>
     <string name="string_subtitutes">Subtitutes</string>
+    <string name="string_info">Info</string>
+    <string name="string_found">Found in:</string>
+    <string name="string_location">Location:</string>
+    <string name="string_website">Website</string>
+    <string name="string_contact">Contact Information</string>
+    <string name="string_facebok">Facebook</string>
+    <string name="string_instagram">Instagram</string>
+    <string name="string_youtobe">Youtube</string>
+    <string name="string_twitter">Twitter</string>
     <string-array name="leagues">
         <item>English Premier League</item>
         <item>English League Championship</item>
