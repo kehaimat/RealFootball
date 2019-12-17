@@ -1,9 +1,12 @@
 package vn.sunasterisk.realfootball.data.model
 
+import android.os.Parcelable
 import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 import vn.sunasterisk.realfootball.extension.formatNumber
 
+@Parcelize
 @Entity(tableName = "players", primaryKeys = ["idPlayer", "idTeam"])
 data class Player(
     @SerializedName("idPlayer")
@@ -74,7 +77,7 @@ data class Player(
     val strWeight: String?,
     @SerializedName("strYoutube")
     val strYoutube: String?
-) {
+) : Parcelable {
     fun getWeight() = strWeight?.formatNumber()
     fun getHeight() = strHeight?.formatNumber()
 }
