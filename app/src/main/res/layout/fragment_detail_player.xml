@@ -1,4 +1,340 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardViewPlayer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_marginEnd="@dimen/dp_8"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="@dimen/dp_12">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_350"
+                    android:padding="@dimen/dp_8">
+
+                    <TextView
+                        android:id="@+id/textPlayerName"
+                        style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+                        android:layout_width="@dimen/dp_140"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_8"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imagePlayer"
+                        tools:text="@tools:sample/full_names" />
+
+                    <ImageView
+                        android:id="@+id/imageThumb"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/dp_200"
+                        android:contentDescription="@string/app_name"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textPlayerPosition"
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_8"
+                        android:gravity="center"
+                        android:textColor="@android:color/black"
+                        app:layout_constraintEnd_toEndOf="@+id/textPlayerName"
+                        app:layout_constraintStart_toStartOf="@+id/textPlayerName"
+                        app:layout_constraintTop_toBottomOf="@+id/textPlayerName"
+                        tools:text="@tools:sample/lorem" />
+
+                    <ImageView
+                        android:id="@+id/imagePlayer"
+                        android:layout_width="@dimen/dp_100"
+                        android:layout_height="@dimen/dp_100"
+                        android:contentDescription="@string/app_name"
+                        app:layout_constraintBottom_toBottomOf="@+id/imageThumb"
+                        app:layout_constraintEnd_toStartOf="@+id/imageThumb"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/imageThumb"
+                        app:layout_constraintTop_toBottomOf="@+id/imageThumb"
+                        tools:srcCompat="@tools:sample/avatars" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardScocial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_marginEnd="@dimen/dp_8"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="@dimen/dp_12">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_200"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp_8">
+
+                    <TextView
+                        android:id="@+id/textScocialNetwork"
+                        style="@style/TextAppearance.AppCompat.Large"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/string_social_network"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipFacebook"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/ic_facebook" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipInstagram"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/ic_insta" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipTwitter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:chipIcon="@drawable/ic_twitter_2" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardOtherInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_marginEnd="@dimen/dp_8"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="@dimen/dp_12"
+                app:cardElevation="@dimen/dp_2">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp_8">
+
+                    <TextView
+                        android:id="@+id/textOtherInfo"
+                        style="@style/TextAppearance.AppCompat.Large"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/string_other_info"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textWeight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_16"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:text="@string/string_weight"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textPlayerHeight" />
+
+                    <TextView
+                        android:id="@+id/textLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_16"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:text="@string/string_birth_location"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textOtherInfo" />
+
+                    <TextView
+                        android:id="@+id/textPlayerLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_8"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/textLocation"
+                        app:layout_constraintStart_toEndOf="@+id/textLocation"
+                        app:layout_constraintTop_toTopOf="@+id/textLocation" />
+
+                    <TextView
+                        android:id="@+id/textClub"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_16"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:text="@string/string_club"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textPlayerLocation" />
+
+                    <TextView
+                        android:id="@+id/textPlayerClub"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_8"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/textClub"
+                        app:layout_constraintStart_toEndOf="@+id/textClub"
+                        app:layout_constraintTop_toTopOf="@+id/textClub" />
+
+                    <TextView
+                        android:id="@+id/textBorn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_16"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:text="@string/string_date_born"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textPlayerClub" />
+
+                    <TextView
+                        android:id="@+id/textPlayerDob"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_8"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/textBorn"
+                        app:layout_constraintStart_toEndOf="@+id/textBorn"
+                        app:layout_constraintTop_toTopOf="@+id/textBorn" />
+
+                    <TextView
+                        android:id="@+id/textNationality"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_16"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:text="@string/string_nationality"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textPlayerDob" />
+
+                    <TextView
+                        android:id="@+id/textPlayerNationality"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_8"
+                        android:maxLines="2"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/textNationality"
+                        app:layout_constraintStart_toEndOf="@+id/textNationality"
+                        app:layout_constraintTop_toTopOf="@+id/textNationality" />
+
+                    <TextView
+                        android:id="@+id/textHeight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_16"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:text="@string/string_height"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textPlayerNationality" />
+
+                    <TextView
+                        android:id="@+id/textPlayerHeight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_8"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/textHeight"
+                        app:layout_constraintStart_toEndOf="@+id/textHeight"
+                        app:layout_constraintTop_toTopOf="@+id/textHeight" />
+
+                    <TextView
+                        android:id="@+id/textPlayerWeight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_8"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="@+id/textWeight"
+                        app:layout_constraintStart_toEndOf="@+id/textWeight"
+                        app:layout_constraintTop_toTopOf="@+id/textWeight" />
+
+                    <TextView
+                        android:id="@+id/textWage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_16"
+                        android:layout_marginTop="@dimen/dp_16"
+                        android:text="@string/string_wage"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textPlayerWeight" />
+
+                    <TextView
+                        android:id="@+id/textPlayerWage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp_8"
+                        app:layout_constraintBottom_toBottomOf="@+id/textWage"
+                        app:layout_constraintStart_toEndOf="@+id/textWage"
+                        app:layout_constraintTop_toTopOf="@+id/textWage" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardHistory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:layout_marginTop="@dimen/dp_8"
+                android:layout_marginEnd="@dimen/dp_8"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="@dimen/dp_12"
+                app:cardElevation="@dimen/dp_2">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp_8">
+
+                    <TextView
+                        android:id="@+id/textHistory"
+                        style="@style/TextAppearance.AppCompat.Large"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/string_history"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textPlayerHistory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp_8"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textHistory" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

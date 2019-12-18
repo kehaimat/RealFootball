@@ -32,6 +32,16 @@
     <string name="string_year_format">Est: %s</string>
     <string name="string_location_format">Location: %s</string>
     <string name="string_capacity_format">Capacity: %s</string>
+    <string name="string_other_info">Other Info</string>
+    <string name="string_weight">Weight</string>
+    <string name="string_birth_location">Birth Location</string>
+    <string name="string_club">Club</string>
+    <string name="string_date_born">Date Born</string>
+    <string name="string_nationality">Nationality</string>
+    <string name="string_height">Height</string>
+    <string name="string_wage">Wage</string>
+    <string name="string_history">History</string>
+    <string name="string_social_network">Social Network</string>
     <string-array name="leagues">
         <item>English Premier League</item>
         <item>English League Championship</item>
