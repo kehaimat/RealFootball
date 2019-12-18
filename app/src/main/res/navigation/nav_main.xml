@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_main"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     app:startDestination="@id/navigation_main">
 
     <fragment
         android:id="@+id/navigation_main"
         android:name="vn.sunasterisk.realfootball.BottomNavigationFragment"
         android:label="@string/app_name"
-        tools:layout="@layout/fragment_bottom_navigation" >
+        tools:layout="@layout/fragment_bottom_navigation">
         <action
             android:id="@+id/action_navigation_main_to_navigation_detail"
             app:destination="@id/navigation_detail" />
         <action
             android:id="@+id/action_navigation_main_to_navigation_team_detail"
             app:destination="@id/navigation_team_detail" />
+        <action
+            android:id="@+id/action_navigation_main_to_navigation_player_detail"
+            app:destination="@id/navigation_player_detail" />
     </fragment>
     <fragment
         android:id="@+id/navigation_detail"
         android:name="vn.sunasterisk.realfootball.ui.detailmatch.DetailMatchFragment"
         android:label="fragment_detail_match"
-        tools:layout="@layout/fragment_detail_match" >
+        tools:layout="@layout/fragment_detail_match">
         <argument
             android:name="idHome"
             app:argType="string" />
@@ -40,5 +43,14 @@
         <argument
             android:name="team"
             app:argType="vn.sunasterisk.realfootball.data.model.Team" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_player_detail"
+        android:name="vn.sunasterisk.realfootball.ui.playerdetail.DetailPlayerFragment"
+        android:label="DetailPlayerFragment"
+        tools:layout="@layout/fragment_detail_player">
+        <argument
+            android:name="player"
+            app:argType="vn.sunasterisk.realfootball.data.model.Player" />
     </fragment>
 </navigation>
