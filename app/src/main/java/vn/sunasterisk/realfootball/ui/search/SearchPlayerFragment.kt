@@ -22,7 +22,6 @@ class SearchPlayerFragment : BaseFragment<SearchPlayerViewModel, FragmentSearchP
     }
     private val searchAdapter by lazy { PlayerAdapter({ openDetailPlayer(it) }) }
 
-
     override fun initializeView(savedInstanceState: Bundle?) {
         viewDataBinding.lifecycleOwner = this
     }

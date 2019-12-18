@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="vn.sunasterisk.realfootball.ui.playerdetail.DetailPlayerViewModel" />
+    </data>
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -11,6 +18,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="@dimen/dp_8"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                app:navigationIcon="?attr/homeAsUpIndicator"
+                app:title="@{viewModel.itemPlayer.strPlayer}" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardViewPlayer"
@@ -24,8 +40,7 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/dp_350"
-                    android:padding="@dimen/dp_8">
+                    android:layout_height="@dimen/dp_350">
 
                     <TextView
                         android:id="@+id/textPlayerName"
@@ -35,6 +50,7 @@
                         android:layout_marginTop="@dimen/dp_8"
                         android:gravity="center"
                         android:maxLines="2"
+                        android:text="@{viewModel.itemPlayer.strPlayer}"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -47,6 +63,7 @@
                         android:layout_width="0dp"
                         android:layout_height="@dimen/dp_200"
                         android:contentDescription="@string/app_name"
+                        android:url="@{viewModel.itemPlayer.strFanart1}"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toStartOf="parent"
@@ -59,6 +76,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dp_8"
                         android:gravity="center"
+                        android:text="@{viewModel.itemPlayer.strPosition}"
                         android:textColor="@android:color/black"
                         app:layout_constraintEnd_toEndOf="@+id/textPlayerName"
                         app:layout_constraintStart_toStartOf="@+id/textPlayerName"
@@ -70,6 +88,7 @@
                         android:layout_width="@dimen/dp_100"
                         android:layout_height="@dimen/dp_100"
                         android:contentDescription="@string/app_name"
+                        android:urlBound="@{viewModel.itemPlayer.strCutout}"
                         app:layout_constraintBottom_toBottomOf="@+id/imageThumb"
                         app:layout_constraintEnd_toStartOf="@+id/imageThumb"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -111,19 +130,28 @@
                         android:id="@+id/chipFacebook"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:chipIcon="@drawable/ic_facebook" />
+                        android:autoLink="all"
+                        android:text="@{viewModel.itemPlayer.strFacebook}"
+                        app:chipIcon="@drawable/ic_facebook"
+                        app:chipStartPadding="@dimen/dp_12" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chipInstagram"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:chipIcon="@drawable/ic_insta" />
+                        android:autoLink="all"
+                        android:text="@{viewModel.itemPlayer.strInstagram}"
+                        app:chipIcon="@drawable/ic_insta"
+                        app:chipStartPadding="@dimen/dp_12" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/chipTwitter"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:chipIcon="@drawable/ic_twitter_2" />
+                        android:autoLink="all"
+                        android:text="@{viewModel.itemPlayer.strTwitter}"
+                        app:chipIcon="@drawable/ic_twitter_2"
+                        app:chipStartPadding="@dimen/dp_12" />
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -180,6 +208,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/dp_8"
+                        android:text="@{viewModel.itemPlayer.strBirthLocation}"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="@+id/textLocation"
                         app:layout_constraintStart_toEndOf="@+id/textLocation"
@@ -200,6 +229,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/dp_8"
+                        android:text="@{viewModel.itemPlayer.strTeam}"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="@+id/textClub"
                         app:layout_constraintStart_toEndOf="@+id/textClub"
@@ -220,6 +250,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/dp_8"
+                        android:text="@{viewModel.itemPlayer.dateBorn}"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="@+id/textBorn"
                         app:layout_constraintStart_toEndOf="@+id/textBorn"
@@ -241,6 +272,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/dp_8"
                         android:maxLines="2"
+                        android:text="@{viewModel.itemPlayer.strNationality}"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="@+id/textNationality"
                         app:layout_constraintStart_toEndOf="@+id/textNationality"
@@ -261,6 +293,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/dp_8"
+                        android:text="@{viewModel.itemPlayer.height}"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="@+id/textHeight"
                         app:layout_constraintStart_toEndOf="@+id/textHeight"
@@ -271,6 +304,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/dp_8"
+                        android:text="@{viewModel.itemPlayer.weight}"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="@+id/textWeight"
                         app:layout_constraintStart_toEndOf="@+id/textWeight"
@@ -291,6 +325,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/dp_8"
+                        android:text="@{viewModel.itemPlayer.strWage}"
+                        android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="@+id/textWage"
                         app:layout_constraintStart_toEndOf="@+id/textWage"
                         app:layout_constraintTop_toTopOf="@+id/textWage" />
@@ -329,6 +365,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dp_8"
+                        android:text="@{viewModel.itemPlayer.strDescriptionEN}"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textHistory" />
